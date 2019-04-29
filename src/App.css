@@ -1,0 +1,199 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 40vmin;
+  pointer-events: none;
+}
+.container{
+  padding-top: 35px;
+  display: flex;
+  align-content:center;
+  justify-content: center;
+  background-color: "white";
+  color: "black"
+  
+  
+}
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+.card{
+  width:48%;
+  box-shadow: 0px 1px 3px 0px rgba(0,0,0,0.9), 
+}
+.firstfield{
+   width:78%
+
+}
+#emailfield{
+  width: 78%;
+}
+
+.passwordfields {
+  display:flex;
+  justify-content: space-evenly;
+  margin: 6%;
+  margin-top: 11px;
+}
+
+.fields{
+  margin-bottom: 5px;
+}
+
+#signbutton {
+  color: royalblue;
+}
+#nextbtn {
+  color:white;
+  background-color: royalblue;
+}
+.buttons {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 21px;
+}
+#Submit {
+  color:white;
+  background-color: royalblue;
+}
+#registerbtn {
+  /* display: flex; */
+  justify-content: space-around;
+  /* margin-bottom: 21px; */
+
+}
+.errorMessage {
+  color: red;
+  font-size: 0.75em;
+  display: relative;
+ 
+}
+
+
+
+.MuiBackdrop-root-539 {
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+  position: fixed;
+  touch-action: none;
+  background-color: rgba(0, 0, 0, 0.12);
+  -webkit-tap-highlight-color: transparent;
+}
+
+
+
+
+#appbar {
+  background-color: white;
+  border-bottom: 1px solid lightgray;
+}
+
+#refresh {
+  width: "5px";
+  height: "5px";
+}
+
+.title {
+  margin-left: 10px;
+  margin-right: 38px
+}
+
+#searchBar {
+  border: 1px grey;
+  border-radius: 4px;
+  max-height: 50px;
+  margin-left: -81%;
+  line-height: 2;
+  margin-top: 11px;
+  background: rgba(0, 0, 0, 0.04)
+}
+
+#searchInputBase {
+  font-family: Roboto, sans-serif;
+  font-style: normal;
+  font-size: 16px;
+  width: 500px;
+}
+
+#menu {
+  color: "gray"
+}
+
+
+#appBarIcons {
+  display: flex;
+  line-height: 3
+}
+
+#appBarMenuAndTitle {
+  display: flex;
+  line-height: 3
+}
+
+
+.App {
+  text-align: center;
+}
+.viewimage{
+  margin-left: 418% ;
+}
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 40vmin;
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+      transform: rotate(0deg);
+  }
+  to {
+      transform: rotate(360deg);
+  }
+}
+
+.profile {
+      margin-left: 77%;
+}
+/*****************************************************/
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
