@@ -5,25 +5,6 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { ResetPasswordUser} from '../services/userservices'
 
-
-
-// const formValid = ({ formErrors, ...rest }) => {
-//     let valid = true;
-
-//     // validate form errors being empty
-//     Object.values(formErrors).forEach(val => {
-//         val.length > 0 && (valid = false);
-//     });
-
-//     // validate the form was filled out
-//     Object.values(rest).forEach(val => {
-//         val === null && (valid = false);
-//     });
-
-//     return valid;
-// };
-
-
 class ResetPasswordComponent extends Component {
     constructor(props) {
         super(props);
@@ -48,10 +29,7 @@ class ResetPasswordComponent extends Component {
                     value.length < 6 ? "min 6 char req" : "";
                 break;
 
-            // case "confirmPassword":
-            //     formErrors.confirmPassword =
-            //         value.length < 6 ? "min 6 char req" : "";
-            //     break;
+       
                 default:
                 break;
         }
@@ -63,22 +41,6 @@ class ResetPasswordComponent extends Component {
     handleSubmit = e => {
         e.preventDefault();
 
-    //     if (formValid(this.state)) {
-    //         toast("Password Reset ", {
-    //             position: toast.POSITION.TOP_CENTER
-    //           });
-    //     //     console.log(`
-    //     //     --SUBMITTING--
-    //     //     NewPassword: ${this.state.newPassword}
-    //     //     ConfirmPassword: ${this.state.confirmPassword}
-            
-    //     //   `);
-    //     } else {
-    //         toast("Enter valid details", {
-    //             position: toast.POSITION.TOP_CENTER
-    //           });
-    //     }
-    // };
     if(this.state.newPassword!=="")
     {
     var data={
@@ -124,29 +86,6 @@ else{
                         )}
                     </div>
                 </div>
-{/* 
-                <div className="fields">
-                    <TextField style={{
-                        width: "58%"
-                    }}
-                        className={formErrors.confirmPassword.length > 0 ? "error" : null}
-                        label="Confirm Password"
-                        name="confirmPassword"
-                        type="password"
-                        value={this.state.confirmPassword}
-                        onChange={this.handleChange}
-                        noValidate
-                        margin="normal"
-                        variant="outlined"
-                    />
-                    <div>
-                        {formErrors.confirmPassword.length > 0 && (
-                            <span className="errorMessage">{formErrors.confirmPassword}</span>
-                        )}
-                    </div> */}
-
-
-
                 {/* </div> */}
                 <div className="buttons">
                     <Button id="signbutton" onClick={this.handleSubmit}>

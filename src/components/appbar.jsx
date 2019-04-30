@@ -5,17 +5,16 @@ import SearchIcon from '@material-ui/icons/Search'
 import AccountCircle from '@material-ui/icons/AccountCircle';
 import MenuItem from '@material-ui/core/MenuItem';
 import Menu from '@material-ui/core/Menu';
+import Drawers from "../components/drawer"
+import {withRouter} from "react-router-dom"
+
 const theme = createMuiTheme({
     overrides: {
         MuiDrawer: {
             paperAnchorLeft: {
                 top: 80,
                 width: 280,
-                background: 'white'
             },
-            paperAnchorDockedLeft: {
-                borderColor: "white"
-            }
         },
         MuiAppBar: {
             root: {
@@ -28,7 +27,6 @@ const theme = createMuiTheme({
                 fontSize: 25,
                 fontFamily: "sans-serif"
             },
-
         },
         MuiToolbar: {
             regular: {
@@ -44,7 +42,6 @@ const theme = createMuiTheme({
                 height: "30px"
             },
         },
-
     },
 })
 
@@ -54,28 +51,29 @@ class AppbarComponent extends Component {
         this.state = {
             open: false,
         }
-        this.handleAppbar = this.handleAppbar.bind(this);
         this.handleSearchBar = this.handleSearchBar.bind(this);
     }
     handleToggle = () => {
-        this.props.slideCards();
         this.setState({ open: !this.state.open });
     }
-    handleAppbar() {
-        this.props.notePropsToApp();
-    }
+   
     handleClose = () => {
         this.setState({ anchorEl: null });
     };
 
     handleSearchBar(evt) {
-        this.setState({ searchNote: evt.target.value });
+        this.setState({ search: evt.target.value });
 
     }
     handleMenu = event => {
         this.setState({ anchorEl: event.currentTarget });
     };
-
+    LoginClick=()=> {
+        this.props.history.push('login')
+      }
+    RegisterClick=()=> {
+        this.props.history.push('register')
+      }
 
     render() {
         const { anchorEl } = this.state;
@@ -85,7 +83,6 @@ class AppbarComponent extends Component {
             <MuiThemeProvider theme={theme}>
                 <AppBar position="fixed" id="appbar" >
                     <Toolbar>
-
                         <div id="appBarMenuAndTitle">
                             <div>
                                 <IconButton color="inherit" aria-label="Open drawer" >
@@ -116,14 +113,11 @@ class AppbarComponent extends Component {
                                 </Card>
                             </div>
 
-                             <div>
-                             <img className="viewimage" src={require('../assets/images/view.svg')} alt="keep icon" />
-                                 </div>
+                            <div>
+                                <img className="viewimage" src={require('../assets/images/view.svg')} alt="keep icon" />
+                            </div>
 
-
-
-
-                            <div className="profile"> 
+                            <div className="profile">
                                 <IconButton
                                     aria-owns={open ? 'menu-appbar' : undefined}
                                     aria-haspopup="true"
@@ -146,21 +140,19 @@ class AppbarComponent extends Component {
                                     open={open}
                                     onClose={this.handleClose}
                                 >
-                                    <MenuItem onClick={this.handleClose}>Profile</MenuItem>
-                                    <MenuItem onClick={this.handleClose}>My account</MenuItem>
+                                    <MenuItem onClick={this.RegisterClick}>Add account</MenuItem>
+                                    <MenuItem onClick={this.LoginClick}>Sign Out</MenuItem>
                                 </Menu>
                             </div>
                         </div>
                     </Toolbar>
-                    {/* <DrawerMenu
+                    <Drawers
                         appBarProps={this.state.open}
-                        handleNavigation={this.props.handleNavigation}
-                        searchLabels={(value) => this.searchLabels(value)}
-                        makeLabelFalse={this.props.makeLabelFalse} /> */}
+                    />
                 </AppBar>
 
             </MuiThemeProvider>
         )
     }
 }
-export default AppbarComponent;
+export default withRouter(AppbarComponent);

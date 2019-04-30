@@ -8,23 +8,6 @@ const emailRegex = RegExp(
     /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/
 );
 
-// const formValid = ({ formErrors, ...rest }) => {
-//     let valid = true;
-
-//     // validate form errors being empty
-//     Object.values(formErrors).forEach(val => {
-//         val.length > 0 && (valid = false);
-//     });
-
-//     // validate the form was filled out
-//     Object.values(rest).forEach(val => {
-//         val === null && (valid = false);
-//     });
-
-//     return valid;
-// };
-
-
 class LoginComponent extends Component {
     constructor(props) {
         super(props);
@@ -36,7 +19,7 @@ class LoginComponent extends Component {
                 password: "",
             }
         };
-        this.baseState = this.state
+        // this.baseState = this.state
     }
 
     handleChange = e => {
@@ -60,20 +43,9 @@ class LoginComponent extends Component {
       };
     
       
-
       handleSubmit = e => {
         e.preventDefault();
     
-      //   if (formValid(this.state)) {
-      //     console.log(`
-      //       --SUBMITTING--
-      //       Email: ${this.state.email}
-      //       Password: ${this.state.password}
-      //     `);
-      //   } else {
-      //       console.log(`Invalid Details`);
-      //   }
-      // };
       if(this.state.email!==""  || this.state.password!=="")
       {
       var data={
@@ -88,9 +60,8 @@ class LoginComponent extends Component {
   
   else{
       toast("Fields are Missing", {
-        position: toast.POSITION.BOTTOM_CENTER
-      });
-      
+        position: toast.POSITION.TOP_CENTER
+      });    
     
     }
   }
@@ -99,8 +70,6 @@ RegisterClick=()=>{
   this.props.history.push('register')
 }
   
-
-
 render() {
     const { formErrors } = this.state;
     return (
@@ -125,10 +94,8 @@ render() {
                   <span className="errorMessage">{formErrors.email}</span>
   )}
               </div>
-            
           </div>
        
-  
   <div className="fields">
             <TextField style={{
               width:"58%"
@@ -141,16 +108,13 @@ render() {
               onChange={this.handleChange}
               noValidate
               margin="normal"
-              variant="outlined"
-              
+              variant="outlined"       
             />
             <div>
             {formErrors.password.length > 0 && (
                   <span className="errorMessage">{formErrors.password}</span>
   )}
               </div>
-  
-  
   
    </div>
   

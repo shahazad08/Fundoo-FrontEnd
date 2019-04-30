@@ -10,22 +10,6 @@ const emailRegex = RegExp(
   /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/
 );
 
-// const formValid = ({ formErrors, ...rest }) => {
-//   let valid = true;
-
-//   // validate form errors being empty
-//   Object.values(formErrors).forEach(val => {
-//     val.length > 0 && (valid = false);
-//   });
-
-//   // validate the form was filled out
-//   Object.values(rest).forEach(val => {
-//     val === null && (valid = false);
-//   });
-
-//   return valid;
-// };
-
 class Register extends Component {
   constructor(props) {
     super(props);
@@ -92,19 +76,6 @@ class Register extends Component {
 
   handleSubmit = e => {
     e.preventDefault();
-
-    // if (formValid(this.state)) {
-    //   console.log(`
-    //     --SUBMITTING--
-    //     First Name: ${this.state.firstName}
-    //     Last Name: ${this.state.lastName}
-    //     Email: ${this.state.email}
-    //     Password: ${this.state.password}
-    //     confirm Password: ${this.state.confirmPassword} 
-    //   `);
-
-    //  } 
-     
      
      if(this.state.firstName!=="" || this.state.lastName!== "" || this.state.email!=="" || this.state.service!=="" ||this.state.password!=="" ||this.state.confirmPassword!=="")
       {

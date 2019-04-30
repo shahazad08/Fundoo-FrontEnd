@@ -19,7 +19,9 @@ function LoginUser(data) {
     axios.post(baseUrl + "user/login", data)
         .then(function (response) {
             console.log(response);
+            console.log(response.data.id)
             toast('Login Successfully')
+            window.location.href = '/dashboard'
         })
         .catch(function (err) {
             console.log(err);

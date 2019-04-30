@@ -113,7 +113,8 @@
 
 .title {
   margin-left: 10px;
-  margin-right: 38px
+  margin-right: 38px;
+  
 }
 
 #searchBar {
@@ -147,6 +148,56 @@
   display: flex;
   line-height: 3
 }
+
+
+
+
+#noteMenu {
+  font-family: Google Sans, Roboto, Arial, sans-serif;
+  height: 30px;
+  font-size: 1.1rem;
+  font-weight: 550;
+  color: #424242;
+}
+
+#reminderMenu {
+  font-family: Google Sans, Roboto, Arial, sans-serif;
+  height: 30px;
+  font-size: 1.1rem;
+  font-weight: 550;
+  color: #424242;
+}
+
+#archiveMenu {
+  font-family: Google Sans, Roboto, Arial, sans-serif;
+  height: 30px;
+  font-size: 1.1rem;
+  font-weight: 550;
+  color: #424242;
+}
+
+#labelMenu {
+  font-family: Google Sans, Roboto, Arial, sans-serif;
+  height: 30px;
+  font-size: 1.1rem;
+  margin-left: 5px;
+  font-weight: 550;
+  color: #424242;
+}
+
+#trashIcon {
+  font-family: Google Sans, Roboto, Arial, sans-serif;
+  height: 30px;
+  font-size: 1.1rem;
+  font-weight: 550;
+  color: #202124;
+}
+
+
+
+
+
+
 
 
 .App {
@@ -186,6 +237,24 @@
 
 .profile {
       margin-left: 77%;
+}
+
+.stylenote {
+  margin-top: 90%;
+  /* border: 1px solid; */
+  margin-left: -103%;
+}
+.cardsize {
+  width: 210%;
+}
+
+.inputnote {
+    display: flex;
+    flex-direction: row;
+}
+
+.inputbase {
+  width: 70%;
 }
 /*****************************************************/
 
