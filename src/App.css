@@ -245,7 +245,10 @@
   margin-left: -103%;
 }
 .cardsize {
-  width: 210%;
+  width: 172%;
+}
+.cardsize1 {
+  width: 160%;
 }
 
 .inputnote {
@@ -255,6 +258,30 @@
 
 .inputbase {
   width: 70%;
+}
+.close{
+  display: flex;
+  justify-content: space-between;
+  margin-right: 30px;
+}
+.noteLogo {
+  display: flex;
+
+}
+
+.imageSize
+{
+  margin-right: 26%;
+}
+
+.getCard {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.getAllCard {
+  margin-top: 80%;
+  margin-left: -100%;
 }
 /*****************************************************/
 
