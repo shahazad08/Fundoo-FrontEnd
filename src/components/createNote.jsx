@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { Component } from "react";
 import Card from '@material-ui/core/Card';
 import { InputBase, Button } from '@material-ui/core';
 import { addNote } from "../services/noteservice";
 
-class CreateNote extends React.Component {
+class CreateNote extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -18,6 +18,9 @@ class CreateNote extends React.Component {
             istrash: false,
             Note: {}
         };
+        this.handleTitle = this.handleTitle.bind(this);
+        this.handleDescription = this.handleDescription.bind(this);
+        
     }
     handleToggle1 = () => {
         this.setState({ openNote: !this.state.openNote });
@@ -29,7 +32,7 @@ class CreateNote extends React.Component {
         if (this.state.title !== "" || this.state.description !== "") {
 
             var note = {
-                "title": this.state.title,
+                "title": this.state.title, 
                 "description": this.state.description
             }
             addNote(note)
@@ -37,12 +40,20 @@ class CreateNote extends React.Component {
                     console.log("note response", result);
 
                     this.setState({
-                        Note: result.data.data
+                        Note: result.data
                     })
-                    this.props.newNote(this.state.Note)
+                    console.log("Notes Does",this.state.Note);
+                    
+                    this.props.getNewNote(this.state.Note)
+                  //  console.log("yhgyhugu",this.props.newNote(this.state.Note));
+                    
                 })
                 .catch((error) => {
                     alert(error);
+                })
+                this.setState({
+                    title: "",
+                    description: ""
                 })
         }
         else {

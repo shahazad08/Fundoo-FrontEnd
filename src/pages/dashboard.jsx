@@ -10,12 +10,13 @@ class Dashboard extends Component{
             open: false,
            //  newCard:[]
         }
-        this.newNote = this.newNote.bind(this);
+        
         //this.newCard = this.newCard.bind(this);
-        this.referenceCard=React.createRef()
+        this.noteToCards=React.createRef();
+        this.getNewNote = this.getNewNote.bind(this);
     }
-    newNote(newCard){
-        this.referenceCard.current.displayCard(newCard)
+    getNewNote(Note){ 
+        this.noteToCards.current.displayNewCard(Note);
     }
     render(){
        if(localStorage.getItem('token1') !== "true"){
@@ -26,15 +27,17 @@ class Dashboard extends Component{
         else{
         return (
             <div className="container">
-                    <div>    
-                    </div>
                     <AppbarComponent/>
-                    <div className='notestyle'>
-                        <CreateNote newNote={this.newNote}/>
-                        <GetNote
-                        ref={this.referenceCard}
+                    <div className="maindiv">
+                    <div className="notedirection">
+                        <CreateNote getNewNote={this.getNewNote}/>
+                        </div>
+                   
+                    <GetNote
+                        ref={this.noteToCards}
                         />
-                    </div>
+                   
+                        </div>
             </div>
         );
         }
