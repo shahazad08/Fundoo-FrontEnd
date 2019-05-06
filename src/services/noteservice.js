@@ -24,6 +24,28 @@ export function getNotes() {
     })
 }
 
+
+
+
+export function updateColor(url,data) {
+    return axios(baseUrl+url, {
+        method:"POST",
+        headers:{
+            "Authorization": localStorage.getItem("token")
+    },
+    data:data
+})
+
+}
+
+
+
+
+
+
+
+
+/****** */
 export function noteArray(notesData){
     console.log("Note Date",notesData)
     let notearray=[];

@@ -2,13 +2,13 @@ import React, { Component } from "react";
 import Card from '@material-ui/core/Card';
 import { InputBase, Button } from '@material-ui/core';
 import { addNote } from "../services/noteservice";
-
+import Color from '../components/color';
 class CreateNote extends Component {
     constructor(props) {
         super(props);
         this.state = {
             openNote: false,
-            title: "",
+            title: "", 
             description: "",
             color: "",
             image: "",
@@ -20,7 +20,7 @@ class CreateNote extends Component {
         };
         this.handleTitle = this.handleTitle.bind(this);
         this.handleDescription = this.handleDescription.bind(this);
-        
+        this.handleColor=this.handleColor.bind(this);
     }
     handleToggle1 = () => {
         this.setState({ openNote: !this.state.openNote });
@@ -33,7 +33,8 @@ class CreateNote extends Component {
 
             var note = {
                 "title": this.state.title, 
-                "description": this.state.description
+                "description": this.state.description,
+                "color":this.state.color
             }
             addNote(note)
                 .then((result) => {
@@ -53,7 +54,8 @@ class CreateNote extends Component {
                 })
                 this.setState({
                     title: "",
-                    description: ""
+                    description: "",
+                    color:""
                 })
         }
         else {
@@ -71,8 +73,8 @@ class CreateNote extends Component {
         this.setState({ description: evt.target.value })
     }
 
-    handleReminder(value) {
-        this.setState({ remindMe: value })
+    handleColor(value) {
+        this.setState({ color: value })
     }
     render() {
         return (!this.state.openNote ?
@@ -88,7 +90,9 @@ class CreateNote extends Component {
             </div>
             :
             <div className='stylenote'>
-                <Card className='cardsize1'>
+                <Card className='cardsize1' style={{
+                    backgroundColor:this.state.color
+                }}>
                     <div className='inputnote'>
                         <InputBase
                             multiline
@@ -119,7 +123,9 @@ class CreateNote extends Component {
                                 <img src={require('../assets/images/note_collab.svg')} alt="collab" />
                             </div>
                             <div className="imageSize">
-                                <img src={require('../assets/images/note_color.svg')} alt="color" />
+                                {/* <img src={require('../assets/images/note_color.svg')} alt="color" /> */}
+                                <Color getcolorprops={this.handleColor}/>
+
                             </div>
                             <div className="imageSize">
                                 <img src={require('../assets/images/note_image.svg')} alt="note_image" />

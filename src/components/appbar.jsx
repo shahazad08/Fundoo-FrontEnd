@@ -13,7 +13,7 @@ const theme = createMuiTheme({
         MuiDrawer: {
             paperAnchorLeft: {
                 top: 80,
-                width: 280,
+                width: 240,
             },
         },
         MuiAppBar: {

@@ -36,7 +36,6 @@ class Dashboard extends Component{
                     <GetNote
                         ref={this.noteToCards}
                         />
-                   
                         </div>
             </div>
         );
