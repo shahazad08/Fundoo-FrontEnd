@@ -1,9 +1,10 @@
 import React, { Component } from "react";
-import Card from '@material-ui/core/Card';
- import {getNotes,updateColor} from "../services/noteservice"
- import Color from '../components/color';
+import {Card,Chip} from '@material-ui/core';
+import {getNotes,updateColor, updateReminder,deleteReminder} from "../services/noteservice"
+import Color from '../components/color';
 
 import {noteArray} from '../services/noteservice'
+import Reminder from "./reminder";
 class GetNote extends Component {
     constructor(){
         super();
@@ -50,15 +51,71 @@ class GetNote extends Component {
                     })
                 }
             }
-           
             console.log("NOtessss",this.state.note);
-            
-         
         })
         .catch((error) => {
             alert(error)
         });
     }
+
+    getReminder=(value,noteID)=>{
+        var noteReminder={
+            "noteIdList":[noteID],
+            "reminder":value
+        }
+        console.log("check it",noteReminder);
+        
+        updateReminder('notes/addUpdateReminderNotes',noteReminder)
+        .then((result) => {
+            console.log("result",result);
+            
+            const newArray = this.state.note
+            console.log("reminder array",newArray);
+            
+            for (let i = 0; i < newArray.length; i++) {
+                if (newArray[i].id === noteID) {
+                    newArray[i].reminder= value;
+                    this.setState({
+                        note: newArray
+                    })
+                }
+            }
+            console.log("NOtessss",this.state.note);
+        })
+        .catch((error) => {
+            alert(error)
+        });
+    }
+
+    getdeleteReminder=(value,noteID)=>{
+        var noteReminder={
+            "noteIdList":[noteID],
+            "reminder":value
+        }
+        console.log("check it",noteReminder);
+        
+        deleteReminder('notes/removeReminderNotes',noteReminder)
+        .then((result) => {
+            console.log("result",result);
+            
+            const newArray = this.state.note
+            console.log("delete reminder array",newArray);
+            
+            for (let i = 0; i < newArray.length; i++) {
+                if (newArray[i].id === noteID) {
+                    newArray[i].reminder= value;
+                    this.setState({
+                        note: newArray
+                    })
+                }
+            }
+            console.log("NOtessss",this.state.note);
+        })
+        .catch((error) => {
+            alert(error)
+        });
+    }
+
 
     displayNewCard=(Note)=>{
         console.log("Note in getNote",this.state.note);
@@ -70,6 +127,7 @@ class GetNote extends Component {
     }
 
     render(){
+        let cardsview=!this.props.noteviewprops ? "listcards":"gridcards";
         let notearray= noteArray(this.state.note);
         console.log('state', this.state.note);
         console.log('notearr', notearray);
@@ -78,18 +136,29 @@ class GetNote extends Component {
                 {Object.keys(notearray).map((key) => {
                     console.log("noteArr", notearray[key]);
                     console.log("keysss",key);
-                    
+
                     return(
-                        <div key={key}>
-                            <Card className="getAllCard" style={{
+                        // <div key={key}>
+                            <Card key={key} className={cardsview}  style={{
                                 backgroundColor:notearray[key].color
                             }}>
                             {notearray[key].title}<br></br>
-                           {notearray[key].description}
+                           {notearray[key].description}<br></br>
+                           
+                           {notearray[key].reminder?
+                           <Chip
 
+                           label={notearray[key].reminder}
+                           onDelete={() => this.getdeleteReminder('', notearray[key].id)}
+                         />
+                         :
+                         null}
+                             
                            <div className="noteLogo">
                            <div className="imageSize1">
-                                <img src={require('../assets/images/note_reminder.svg')} alt="reminder" />
+                               <Reminder 
+                               reminder={this.getReminder}
+                               noteID={notearray[key].id}/>
                             </div>
                             <div className="imageSize1">
                                 <img src={require('../assets/images/note_collab.svg')} alt="collab" />
@@ -99,7 +168,6 @@ class GetNote extends Component {
                             <Color getcolorprops={this.getColor}
                                noteID={notearray[key].id}
                                //sendColorProps={this.getColor}
-                               
                             />
                             </div>
                             <div className="imageSize1">
@@ -110,8 +178,7 @@ class GetNote extends Component {
                             </div>
                                </div>
                             </Card>
-                        </div>
-                        
+                        // </div>    
                     )
                 })}
             </div>

@@ -54,7 +54,7 @@ class Register extends Component {
         break;
         case "service":
         formErrors.service =
-          value.length < 3 ? "mini 3 char req" : "";
+          value.length < 3 ? "min 3 char req" : "";
         break;
       case "password":
         formErrors.password =
@@ -119,7 +119,7 @@ LoginClick=()=> {
            className={formErrors.firstName.length > 0 ? "error" : null}
             label="firstName"
             name="firstName"
-            
+            id="firstName"
             value={this.state.firstName}
             onChange={this.handleChange}
             noValidate
@@ -141,7 +141,7 @@ LoginClick=()=> {
            className={formErrors.lastName.length > 0 ? "error" : null}
             label="lastName"
             name="lastName"
-          
+            id="lastName"
             value={this.state.lastName}
             onChange={this.handleChange}
             noValidate
@@ -164,6 +164,7 @@ LoginClick=()=> {
           }}
            className={formErrors.email.length > 0 ? "error" : null}
             label="Email"
+            id="email"
             name="email"
             type="email"
             value={this.state.email}
@@ -186,6 +187,7 @@ LoginClick=()=> {
           }}
            className={formErrors.service.length > 0 ? "error" : null}
             label="Service"
+            id="service"
             name="service"
             value={this.state.service}
             onChange={this.handleChange}
@@ -210,6 +212,7 @@ LoginClick=()=> {
            className={formErrors.password.length > 0 ? "error" : null}
             label="password"
             name="password"
+            id="password"
             type="password"
             value={this.state.password}
             onChange={this.handleChange}
@@ -233,6 +236,7 @@ LoginClick=()=> {
            className={formErrors.confirmPassword.length > 0 ? "error" : null}
             label="confirmPassword"
             name="confirmPassword"
+            id="confirmPassword"
             type="password"
             value={this.state.confirmPassword}
             onChange={this.handleChange}

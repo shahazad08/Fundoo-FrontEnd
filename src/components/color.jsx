@@ -1,29 +1,24 @@
 import React, { Component } from 'react';
 import { IconButton, Tooltip, Card, ClickAwayListener } from '@material-ui/core';
+import content from '../content';
 
+// Color details for the notes
+const colorCodesAndNames = content;
 
-const colorCodesAndNames = [{ name: "white" },
-{ name: "lightGreen",hexCode:"#90EE90" },
-{ name: "pink", hexCode:"#FFC0CB"},
-{ name: "orange",hexCode: "#FFA500"},
-{ name: "blue",hexCode :"#0000FF"},
-{ name: "brown" ,hexCode:"#A52A2A"},
-{ name: "purple" ,hexCode:"#800080"},
-{ name: "red" ,hexCode:"#FF0000"},
-{ name: "Teal" ,hexCode:"#008080"},
-{ name: "yellow" ,hexCode:"#FFFF00"},
-{ name: "darkBlue",hexCode:"#00008B" },
-{ name: "gray",hexCode:"#808080" }
-]
+/**
+ * @description Color component
+ * @method closePopUp
+ * @method handleColor
+ * @method handleToggle
+ */
 class Color extends Component {
+
     constructor(props) {
         super(props);
         this.state = {
             open: false
-
         }
         this.handleToggle = this.handleToggle.bind(this);
-
         this.handleColor = this.handleColor.bind(this);
     }
 
@@ -37,18 +32,15 @@ class Color extends Component {
         // this.props.getcolorprops(evt.target.value)
         console.log("note id",this.props.noteID);
         this.props.getcolorprops(evt.target.value,this.props.noteID)
-        
     }
 
 
     handleToggle() {
         this.setState({ open: !this.state.open });
-
     }
+
     render() {
-
         const changeCardColor = colorCodesAndNames.map((colorKey) =>
-
             <Tooltip title={colorKey.name}>
                 <IconButton style={{ backgroundColor: colorKey.hexCode, "margin": "2px", }}
                     value={colorKey.hexCode}
@@ -58,7 +50,6 @@ class Color extends Component {
         );
 
         return (
-
             <div>
                 <Tooltip title="Change Color">
                     <img src={require('../assets/images/note_color.svg')}
@@ -82,4 +73,5 @@ class Color extends Component {
         )
     }
 }
+
 export default Color;

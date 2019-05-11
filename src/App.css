@@ -120,8 +120,8 @@
 #searchBar {
   border: 1px grey;
   border-radius: 4px;
-  max-height: 50px;
-  margin-left: -81%;
+  /* max-height: 50px; */
+  margin-left: -54%;
   line-height: 2;
   margin-top: 11px;
   background: rgba(0, 0, 0, 0.04)
@@ -156,7 +156,7 @@
   font-family: Google Sans, Roboto, Arial, sans-serif;
   height: 30px;
   font-size: 1.1rem;
-  font-weight: 550;
+  font-weight: 549;
   color: #424242;
 }
 
@@ -164,7 +164,7 @@
   font-family: Google Sans, Roboto, Arial, sans-serif;
   height: 30px;
   font-size: 1.1rem;
-  font-weight: 550;
+  font-weight: 549;
   color: #424242;
 }
 
@@ -172,7 +172,7 @@
   font-family: Google Sans, Roboto, Arial, sans-serif;
   height: 30px;
   font-size: 1.1rem;
-  font-weight: 550;
+  font-weight: 549;
   color: #424242;
 }
 
@@ -181,7 +181,7 @@
   height: 30px;
   font-size: 1.1rem;
   margin-left: 5px;
-  font-weight: 550;
+  font-weight: 549;
   color: #424242;
 }
 
@@ -189,7 +189,7 @@
   font-family: Google Sans, Roboto, Arial, sans-serif;
   height: 30px;
   font-size: 1.1rem;
-  font-weight: 550;
+  font-weight: 549;
   color: #202124;
 }
 
@@ -229,7 +229,7 @@
 }
 
 .profile {
-      margin-left: 77%;
+      margin-left: 50%;
 }
 
 .stylenote {
@@ -269,7 +269,7 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
-  margin-top: -26%;
+  margin-top: -32%;
 }
 .imageSize
 {
@@ -285,13 +285,18 @@
   justify-content: space-between;
   flex-wrap: wrap;
 }
-.getAllCard {
+.listcards {
   box-shadow: 0px 1px 3px 0px rgba(0,0,0,1.6), 0px 1px 1px 0px rgba(0,0,0,0.14), 0px 2px 1px -1px rgba(0,0,0,0.12);
   margin-top: 20%;
-  width: 173%;
+  width: 26%;
   /* margin-left: -100%; */
 }
+.gridcards {
+  box-shadow: 0px 1px 3px 0px rgba(0,0,0,1.6), 0px 1px 1px 0px rgba(0,0,0,0.14), 0px 2px 1px -1px rgba(0,0,0,0.12);
+  margin-top: 20%;
+  width: 76%;
 
+}
 .notedirection{
   display: flex;
   width: 30%;
@@ -304,7 +309,7 @@
 } 
 .maindiv{
   width: 60%;
-  border: solid;
+  /* border: solid; */
   margin-top: 10%;
 }
 
@@ -320,8 +325,13 @@
 }
 
 
-
-
+.searchCard{
+  margin-right: -12%
+}
+.reminderMenu{
+  display: flex;
+  justify-content: space-between
+}
 
 
 /*****************************************************/

@@ -81,6 +81,7 @@ render() {
              className={formErrors.email.length > 0 ? "error" : null}
               label="Email"
               name="email"
+              id="email"
               type="email"
               value={this.state.email}
               onChange={this.handleChange}
@@ -103,6 +104,7 @@ render() {
              className={formErrors.password.length > 0 ? "error" : null}
               label="password"
               name="password"
+              id="password"
               type="password"
               value={this.state.password}
               onChange={this.handleChange}

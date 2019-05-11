@@ -35,6 +35,7 @@ function UserRegister(data) {
         .then(function (response) {
             console.log(response);
             toast('Registered Successfully')
+            window.location.href = '/login'
         })
         .catch(function (err) {
             console.log(err);

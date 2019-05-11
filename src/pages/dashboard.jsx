@@ -8,15 +8,19 @@ class Dashboard extends Component{
         super();
         this.state = {
             open: false,
+            cardstyle:false
            //  newCard:[]
         }
-        
         //this.newCard = this.newCard.bind(this);
         this.noteToCards=React.createRef();
+        this.handlecardstyle=this.handlecardstyle.bind(this);
         this.getNewNote = this.getNewNote.bind(this);
     }
     getNewNote(Note){ 
         this.noteToCards.current.displayNewCard(Note);
+    }
+    handlecardstyle(){
+      this.setState({cardstyle:!this.state.cardstyle})
     }
     render(){
        if(localStorage.getItem('token1') !== "true"){
@@ -27,7 +31,9 @@ class Dashboard extends Component{
         else{
         return (
             <div className="container">
-                    <AppbarComponent/>
+                    <AppbarComponent
+                    viewprops={this.handlecardstyle}
+                    />
                     <div className="maindiv">
                     <div className="notedirection">
                         <CreateNote getNewNote={this.getNewNote}/>
@@ -35,6 +41,7 @@ class Dashboard extends Component{
                    
                     <GetNote
                         ref={this.noteToCards}
+                        noteviewprops={this.state.cardstyle}
                         />
                         </div>
             </div>

@@ -7,7 +7,6 @@ class ResetPassword extends Component{
             <div className="container">
             <Card className="card">
                 <h2>Reset your Password</h2>
-              
                     <div>    
                     </div>
                     <ResetPasswordComponent/>

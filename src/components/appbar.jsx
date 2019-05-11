@@ -7,7 +7,7 @@ import MenuItem from '@material-ui/core/MenuItem';
 import Menu from '@material-ui/core/Menu';
 import Drawers from "../components/drawer"
 import {withRouter} from "react-router-dom"
-
+import CardView from "../components/cardview"
 const theme = createMuiTheme({
     overrides: {
         MuiDrawer: {
@@ -52,6 +52,7 @@ class AppbarComponent extends Component {
             open: false,
         }
         this.handleSearchBar = this.handleSearchBar.bind(this);
+        this.handleAppbar=this.handleAppbar.bind(this)
     }
     handleToggle = () => {
         this.setState({ open: !this.state.open });
@@ -60,6 +61,9 @@ class AppbarComponent extends Component {
     handleClose = () => {
         this.setState({ anchorEl: null });
     };
+    handleAppbar(){
+        this.props.viewprops()
+    }
 
     handleSearchBar(evt) {
         this.setState({ search: evt.target.value });
@@ -99,7 +103,7 @@ class AppbarComponent extends Component {
                         <div id="appBarIcons">
 
                             <div id="searchBar">
-                                <Card>
+                                <Card className="searchCard">
                                     <IconButton color="inherit" aria-label="Open drawer" style={{ marginLeft: "8px" }} >
                                         <Tooltip title="Search">
                                             <SearchIcon style={{ color: "gray" }} />
@@ -112,9 +116,9 @@ class AppbarComponent extends Component {
                                     />
                                 </Card>
                             </div>
-
+                         
                             <div>
-                                <img className="viewimage" src={require('../assets/images/view.svg')} alt="keep icon" />
+                            <CardView CardViewprops={this.handleAppbar}/>
                             </div>
 
                             <div className="profile">
@@ -150,7 +154,6 @@ class AppbarComponent extends Component {
                         appBarProps={this.state.open}
                     />
                 </AppBar>
-
             </MuiThemeProvider>
         )
     }

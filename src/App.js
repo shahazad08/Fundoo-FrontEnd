@@ -12,22 +12,15 @@ class App extends Component {
       <div>
         <Router>
           <div className="App">
-
             <Route path="/register" component={Registeration}></Route>
             <Route path="/login" component={Login}></Route>
             <Route path="/forgetpassword" component={ForgetPassword}></Route>
             <Route path="/resetpassword" component={ResetPassword}></Route>
             <Route path="/dashboard" component={Dashboard}></Route>
-
-           
-
-
           </div>
         </Router>
       </div>
-
     );
-
   }
 }
 export default App;

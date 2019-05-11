@@ -3,6 +3,7 @@ import Card from '@material-ui/core/Card';
 import { InputBase, Button } from '@material-ui/core';
 import { addNote } from "../services/noteservice";
 import Color from '../components/color';
+import Reminder from "./reminder";
 class CreateNote extends Component {
     constructor(props) {
         super(props);
@@ -21,6 +22,7 @@ class CreateNote extends Component {
         this.handleTitle = this.handleTitle.bind(this);
         this.handleDescription = this.handleDescription.bind(this);
         this.handleColor=this.handleColor.bind(this);
+        this.handleReminder=this.handleReminder.bind(this);
     }
     handleToggle1 = () => {
         this.setState({ openNote: !this.state.openNote });
@@ -34,12 +36,12 @@ class CreateNote extends Component {
             var note = {
                 "title": this.state.title, 
                 "description": this.state.description,
-                "color":this.state.color
+                "color":this.state.color,
+                "reminder":this.state.reminder
             }
             addNote(note)
                 .then((result) => {
                     console.log("note response", result);
-
                     this.setState({
                         Note: result.data
                     })
@@ -55,7 +57,8 @@ class CreateNote extends Component {
                 this.setState({
                     title: "",
                     description: "",
-                    color:""
+                    color:"",
+                    reminder:""
                 })
         }
         else {
@@ -63,7 +66,6 @@ class CreateNote extends Component {
         }
 
     }
-
 
     handleTitle = (evt) => {
         this.setState({ title: evt.target.value })
@@ -76,6 +78,11 @@ class CreateNote extends Component {
     handleColor(value) {
         this.setState({ color: value })
     }
+
+    handleReminder(value) {
+        this.setState({ reminder: value })
+    }
+
     render() {
         return (!this.state.openNote ?
             <div className='stylenote'>
@@ -117,7 +124,9 @@ class CreateNote extends Component {
                     <div className="close">
                         <div className="noteLogo">
                             <div className="imageSize">
-                                <img src={require('../assets/images/note_reminder.svg')} alt="reminder" />
+                                {/* <img src={require('../assets/images/note_reminder.svg')} alt="reminder" /> */}
+                                <Reminder reminder={this.handleReminder}/>
+                                
                             </div>
                             <div className="imageSize">
                                 <img src={require('../assets/images/note_collab.svg')} alt="collab" />
