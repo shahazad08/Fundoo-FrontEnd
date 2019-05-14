@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import AppbarComponent from "../components/appbar";
-import CreateNote from "../components/createNote";
-import GetNote from "../components/getnote";
+import WebView from "../components/webview";
+//import CreateNote from "../components/createNote";
+//import GetNote from "../components/getnote";
 // import ForgetPwdComponent from """../components/forgetpwd";
 class Dashboard extends Component{
     constructor() {
@@ -34,15 +35,16 @@ class Dashboard extends Component{
                     <AppbarComponent
                     viewprops={this.handlecardstyle}
                     />
-                    <div className="maindiv">
+                    <div className="maindiv" position="fixed">
                     <div className="notedirection">
-                        <CreateNote getNewNote={this.getNewNote}/>
+                    <WebView/>
+                        {/* <CreateNote getNewNote={this.getNewNote}/> */}
                         </div>
                    
-                    <GetNote
+                    {/* <GetNote
                         ref={this.noteToCards}
                         noteviewprops={this.state.cardstyle}
-                        />
+                        /> */}
                         </div>
             </div>
         );

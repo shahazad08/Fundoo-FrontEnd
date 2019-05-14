@@ -37,7 +37,6 @@ class ResetPasswordComponent extends Component {
     };
 
 
-
     handleSubmit = e => {
         e.preventDefault();
 

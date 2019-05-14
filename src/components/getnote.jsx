@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import {Card,Chip} from '@material-ui/core';
 import {getNotes,updateColor, updateReminder,deleteReminder} from "../services/noteservice"
 import Color from '../components/color';
-
 import {noteArray} from '../services/noteservice'
 import Reminder from "./reminder";
 class GetNote extends Component {
@@ -139,15 +138,21 @@ class GetNote extends Component {
 
                     return(
                         // <div key={key}>
-                            <Card key={key} className={cardsview}  style={{
+                            <Card
+                             key={key} className={cardsview}  style={{
                                 backgroundColor:notearray[key].color
+                            }}>
+                            <div style={{
+                                display:"flex"
                             }}>
                             {notearray[key].title}<br></br>
                            {notearray[key].description}<br></br>
-                           
+                           </div>
                            {notearray[key].reminder?
-                           <Chip
-
+                           <Chip style={{
+                               display:"flex",
+                               width:"56px"
+                           }}
                            label={notearray[key].reminder}
                            onDelete={() => this.getdeleteReminder('', notearray[key].id)}
                          />
@@ -176,6 +181,7 @@ class GetNote extends Component {
                             <div className="imageSize1">
                                 <img src={require('../assets/images/note_archive.svg')} alt="archive" />
                             </div>
+                           
                                </div>
                             </Card>
                         // </div>    

@@ -6,6 +6,7 @@ import Login from './pages/login';
 import ForgetPassword from './pages/forget_password';
 import ResetPassword from './pages/reset_password';
 import Dashboard from './pages/dashboard';
+import HOC from './pages/hoc';
 class App extends Component {
   render() {
     return (
@@ -17,6 +18,8 @@ class App extends Component {
             <Route path="/forgetpassword" component={ForgetPassword}></Route>
             <Route path="/resetpassword" component={ResetPassword}></Route>
             <Route path="/dashboard" component={Dashboard}></Route>
+            <Route path="/hoc" component={HOC}></Route>
+            
           </div>
         </Router>
       </div>
